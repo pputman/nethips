@@ -1,7 +1,11 @@
 Medicalapp::Application.routes.draw do
 
+  devise_for :users
   resources :patients
+  resources :uploads
+
   root :to => "patients#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

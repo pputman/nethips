@@ -9,6 +9,8 @@ gem 'sqlite3'
 gem 'carrierwave', :git => 'git://github.com/jnicklas/carrierwave.git'
 gem 'rmagick'
 gem 'devise'
+gem 'rubyzip'
+gem 'roo'
 # Use unicorn as the web server
 # gem 'unicorn'
 
