@@ -11,6 +11,7 @@ gem 'rmagick'
 gem 'devise'
 gem 'rubyzip'
 gem 'roo'
+gem 'paperclip'
 # Use unicorn as the web server
 # gem 'unicorn'
 

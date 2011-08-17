@@ -85,4 +85,7 @@ class PatientsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def upload
+  end
 end
