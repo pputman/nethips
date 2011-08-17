@@ -1,8 +1,10 @@
 Medicalapp::Application.routes.draw do
 
+
   resources :patient_documents
 
   devise_for :users
+  resources :users
   resources :patients do
     collection do
       get 'upload'
