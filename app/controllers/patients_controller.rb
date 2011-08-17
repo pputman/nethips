@@ -14,11 +14,17 @@ class PatientsController < ApplicationController
   end
   
   def archived
-    @patients = Patient.all
-    @patients = Patient.where("patients.name LIKE :search", {:search => "%#{params[:search]}%" }) if params[:search]
+    if current_user.admin
+      @patients = Patient.all
+      @patients = Patient.where("patients.name LIKE :search", {:search => "%#{params[:search]}%" }) if params[:search]
     
-    respond_to do |format|
-      format.html
+      respond_to do |format|
+        format.html
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to patients_path }
+      end
     end
   end
 
@@ -46,7 +52,13 @@ class PatientsController < ApplicationController
 
   # GET /patients/1/edit
   def edit
-    @patient = Patient.find(params[:id])
+    if current_user.admin
+      @patient = Patient.find(params[:id])
+    else
+      respond_to do |format|
+        format.html {redirect_to root_path}
+      end
+    end
   end
 
   # POST /patients
@@ -89,39 +101,39 @@ class PatientsController < ApplicationController
     end
   end
 
-  # DELETE /patients/1
-  # DELETE /patients/1.xml
-  def destroy
-    @patient = Patient.find(params[:id])
-    @patient.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(patients_url) }
-      format.xml  { head :ok }
-    end
-  end
-
   def upload
     @patient = Patient.new
   end
   
   def archive
-    @patient = Patient.find(params[:id])
-    @patient.archive = true
-    @patient.save
+    if current_user.admin
+      @patient = Patient.find(params[:id])
+      @patient.archive = true
+      @patient.save
     
-    respond_to do |format|
-      format.html {redirect_to(patients_url) }
+      respond_to do |format|
+        format.html {redirect_to(patients_url) }
+      end
+    else
+      respond_to do |format|
+        format.html {redirect_to(patients_url) }
+      end
     end
   end
   
   def unarchive
-    @patient = Patient.find(params[:id])
-    @patient.archive = false
-    @patient.save
+    if current_user.admin
+      @patient = Patient.find(params[:id])
+      @patient.archive = false
+      @patient.save
     
-    respond_to do |format|
-      format.html {redirect_to(archived_patients_path) }
+      respond_to do |format|
+        format.html {redirect_to(archived_patients_path) }
+      end
+    else
+      respond_to do |format|
+        format.html {redirect_to(patients_path)}
+      end
     end
   end
 end

@@ -28,8 +28,10 @@
       <td><%= patient.sex %></td>
       <td><%= patient.treatment %></td>
       <td><%= patient.source %></td>
-      <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
-      <td><%= link_to 'Archive', archive_patient_path(patient), :confirm => 'Are you sure?' %></td>
+      <% if current_user.admin %>
+        <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
+        <td><%= link_to 'Archive', archive_patient_path(patient), :confirm => 'Are you sure?' %></td>
+      <% end %>
     </tr>
   <% end %>
 <% end %>
