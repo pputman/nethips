@@ -8,6 +8,11 @@ Medicalapp::Application.routes.draw do
   resources :patients do
     collection do
       get 'upload'
+      get 'archived'
+    end
+    member do 
+      get 'archive'
+      get 'unarchive'
     end
   end
 

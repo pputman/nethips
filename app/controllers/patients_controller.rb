@@ -5,13 +5,20 @@ class PatientsController < ApplicationController
   # GET /patients.xml
   def index
     @patients = Patient.all
- 
     @patients = Patient.where("patients.name LIKE :search", {:search => "%#{params[:search]}%" }) if params[:search]
-
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @patients }
+    end
+  end
+  
+  def archived
+    @patients = Patient.all
+    @patients = Patient.where("patients.name LIKE :search", {:search => "%#{params[:search]}%" }) if params[:search]
+    
+    respond_to do |format|
+      format.html
     end
   end
 
@@ -96,5 +103,25 @@ class PatientsController < ApplicationController
 
   def upload
     @patient = Patient.new
+  end
+  
+  def archive
+    @patient = Patient.find(params[:id])
+    @patient.archive = true
+    @patient.save
+    
+    respond_to do |format|
+      format.html {redirect_to(patients_url) }
+    end
+  end
+  
+  def unarchive
+    @patient = Patient.find(params[:id])
+    @patient.archive = false
+    @patient.save
+    
+    respond_to do |format|
+      format.html {redirect_to(archived_patients_path) }
+    end
   end
 end

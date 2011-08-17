@@ -1,10 +1,10 @@
 <h1>Listing patients</h1>
 
-<%= form_tag(patients_path, :method => :get) do %>
+<%= form_tag(archived_patients_path, :method => :get) do %>
   <div id="search">
     <%= text_field_tag 'search', params[:search], :id => 'search' %>
     <%= submit_tag 'Search'%>
-    <%= link_to "Reset Search", patients_path unless params[:search].blank? %>
+    <%= link_to "Reset Search", archived_patients_path unless params[:search].blank? %>
   </div>
 <% end %>
 <table>
@@ -20,7 +20,7 @@
     <th></th>
   </tr>
 <% @patients.each do |patient| %>
-  <% unless patient.archive %>
+  <% if patient.archive %>
     <tr>
       <td><%= link_to patient.name, patient %></td>
       <td><%= patient.address %></td>
@@ -29,11 +29,10 @@
       <td><%= patient.treatment %></td>
       <td><%= patient.source %></td>
       <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
-      <td><%= link_to 'Archive', archive_patient_path(patient), :confirm => 'Are you sure?' %></td>
+      <td><%= link_to 'Restore', unarchive_patient_path(patient), :confirm => 'Are you sure?' %></td>
     </tr>
   <% end %>
 <% end %>
 </table>
 
 <br />
-<%= link_to 'New Patient', new_patient_path %>

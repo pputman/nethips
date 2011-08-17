@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110815000459) do
+ActiveRecord::Schema.define(:version => 20110817211244) do
 
   create_table "data_files", :force => true do |t|
     t.datetime "created_at"
@@ -35,6 +35,12 @@ ActiveRecord::Schema.define(:version => 20110815000459) do
   add_index "models", ["email"], :name => "index_models_on_email", :unique => true
   add_index "models", ["reset_password_token"], :name => "index_models_on_reset_password_token", :unique => true
 
+  create_table "patient_documents", :force => true do |t|
+    t.string   "document"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "patients", :force => true do |t|
     t.string   "name"
     t.string   "address"
@@ -45,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20110815000459) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "picture"
+    t.boolean  "archive"
   end
 
   create_table "users", :force => true do |t|
@@ -60,6 +67,7 @@ ActiveRecord::Schema.define(:version => 20110815000459) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "admin"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
