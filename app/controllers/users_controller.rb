@@ -118,8 +118,10 @@ class UsersController < ApplicationController
         format.html { redirect_to(users_url) }
         format.xml  { head :ok }
       end
-    else respond_to do |format|
-      format.html {redirect_to patients_path }
+    else 
+      respond_to do |format|
+        format.html {redirect_to patients_path }
+      end
     end
   end
 end
