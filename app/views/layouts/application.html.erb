@@ -7,12 +7,16 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-  <%= link_to "Home", root_path %> |
-  <%= link_to "Upload Patients File", upload_patients_path %> |
-  <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
-    |
-    <%= link_to "Users", users_path %> |
-    <%= link_to "Archived Patients", archived_patients_path %>
+  <% if current_user %>
+    <%= link_to "Home", root_path %> |
+    <%= link_to "Upload Patients File", upload_patients_path %> |
+    <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+    <% if current_user.admin %>
+      |
+      <%= link_to "Users", users_path %> |
+      <%= link_to "Archived Patients", archived_patients_path %>
+    <% end %>
+  <% end %>
   <br /> <br />
   <%= yield %>
 

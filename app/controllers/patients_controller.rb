@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
   before_filter :authenticate_user!
-  
+  before_filter :authorize_admin!, :only => [:archived, :archive, :unarchive, :edit]
   # GET /patients
   # GET /patients.xml
   def index
@@ -14,17 +14,11 @@ class PatientsController < ApplicationController
   end
   
   def archived
-    if current_user.admin
-      @patients = Patient.all
-      @patients = Patient.where("patients.name LIKE :search", {:search => "%#{params[:search]}%" }) if params[:search]
+    @patients = Patient.all
+    @patients = Patient.where("patients.name LIKE :search", {:search => "%#{params[:search]}%" }) if params[:search]
     
-      respond_to do |format|
-        format.html
-      end
-    else
-      respond_to do |format|
-        format.html { redirect_to patients_path }
-      end
+    respond_to do |format|
+      format.html
     end
   end
 
@@ -52,13 +46,7 @@ class PatientsController < ApplicationController
 
   # GET /patients/1/edit
   def edit
-    if current_user.admin
-      @patient = Patient.find(params[:id])
-    else
-      respond_to do |format|
-        format.html {redirect_to root_path}
-      end
-    end
+    @patient = Patient.find(params[:id])
   end
 
   # POST /patients
@@ -106,34 +94,23 @@ class PatientsController < ApplicationController
   end
   
   def archive
-    if current_user.admin
-      @patient = Patient.find(params[:id])
-      @patient.archive = true
-      @patient.save
+    @patient = Patient.find(params[:id])
+    @patient.archive = true
+    @patient.save
     
-      respond_to do |format|
-        format.html {redirect_to(patients_url) }
-      end
-    else
-      respond_to do |format|
-        format.html {redirect_to(patients_url) }
-      end
+    respond_to do |format|
+      format.html {redirect_to(patients_url) }
     end
   end
   
   def unarchive
-    if current_user.admin
-      @patient = Patient.find(params[:id])
-      @patient.archive = false
-      @patient.save
+    @patient = Patient.find(params[:id])
+    @patient.archive = false
+    @patient.save
     
-      respond_to do |format|
-        format.html {redirect_to(archived_patients_path) }
-      end
-    else
-      respond_to do |format|
-        format.html {redirect_to(patients_path)}
-      end
+    respond_to do |format|
+      format.html {redirect_to(archived_patients_path) }
     end
   end
+  
 end
