@@ -45,15 +45,23 @@ class PatientsController < ApplicationController
   # POST /patients
   # POST /patients.xml
   def create
-    @patient = Patient.new(params[:patient])
-
-    respond_to do |format|
-      if @patient.save
-        format.html { redirect_to(@patient, :notice => 'Patient was successfully created.') }
-        format.xml  { render :xml => @patient, :status => :created, :location => @patient }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @patient.errors, :status => :unprocessable_entity }
+    if params[:patient][:upload]
+      file = params[:patient][:upload].read
+      file.each_line do |patient|
+        name, age, sex, treatment, address, source = patient.chomp.split(",")
+        Patient.create!(:name => name, :age => age, :sex => sex, :treatment => treatment, :address => address, :source => source)
+      end
+      redirect_to(patients_url)
+    else
+      @patient = Patient.new(params[:patient])
+      respond_to do |format|
+        if @patient.save
+          format.html { redirect_to(@patient, :notice => 'Patient was successfully created.') }
+          format.xml  { render :xml => @patient, :status => :created, :location => @patient }
+        else
+          format.html { render :action => "new" }
+          format.xml  { render :xml => @patient.errors, :status => :unprocessable_entity }
+        end
       end
     end
   end
@@ -87,5 +95,6 @@ class PatientsController < ApplicationController
   end
 
   def upload
+    @patient = Patient.new
   end
 end

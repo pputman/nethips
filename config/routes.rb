@@ -3,8 +3,11 @@ Medicalapp::Application.routes.draw do
   resources :patient_documents
 
   devise_for :users
-  resources :patients
-  resources :uploads
+  resources :patients do
+    collection do
+      get 'upload'
+    end
+  end
 
   root :to => "patients#index"
 

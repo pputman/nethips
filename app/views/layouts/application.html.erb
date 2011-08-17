@@ -7,7 +7,9 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-
+  <%= link_to "Home", root_path %> |
+  <%= link_to "Upload Patients File", upload_patients_path %>
+  <br /> <br />
   <%= yield %>
 
 </body>
