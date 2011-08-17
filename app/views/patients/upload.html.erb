@@ -1,6 +1,7 @@
 <%= form_for(@patient, :html => {:multipart => true}) do |f| %>
   <div class="field">
-    <%= f.label :upload, "Upload Patient Documents" %><br />
+    <%= f.label :upload, "Upload csv file in the format of 'name, age, sex, treatment, address, source' to add to the patient database"%><br /><br /><br />
+    
     <%= f.file_field :upload %>
   </div>
   <div class="actions">
