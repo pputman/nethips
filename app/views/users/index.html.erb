@@ -3,15 +3,18 @@
 <table>
   <tr>
     <th>Email</th>
+    <th>Admin</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-
 <% @users.each do |user| %>
   <tr>
     <td><%= link_to user.email, user %></td>
+      
       <% if current_user.admin %>
+      
+        <td><%= check_box user, :admin %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Delete', user, :confirm => 'Are you sure?', :method => :delete %></td>
       <% end %>
