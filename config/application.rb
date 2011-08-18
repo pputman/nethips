@@ -34,8 +34,8 @@ module Medicalapp
     config.action_view.javascript_expansions[:defaults] = %w(jquery jquery-ui jquery_ujs)
     config.action_view.stylesheet_expansions[:defaults] = %w(application jquery-ui)
     
-    config.action_view.javascript_expansions[:jtable] = %w(jTable)
-    config.action_view.stylesheet_expansions[:jtable] = %w(jTable)
+    config.action_view.javascript_expansions[:jtable] = %w(jtable)
+    config.action_view.stylesheet_expansions[:jtable] = %w(jtable)
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
