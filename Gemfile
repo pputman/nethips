@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.9'
+gem 'jquery-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -9,9 +10,8 @@ gem 'sqlite3'
 gem 'carrierwave', :git => 'git://github.com/jnicklas/carrierwave.git'
 gem 'rmagick'
 gem 'devise'
-gem 'rubyzip'
-gem 'roo'
 gem 'paperclip'
+gem 'jtable-rails'
 # Use unicorn as the web server
 # gem 'unicorn'
 

@@ -4,21 +4,24 @@ class PatientsController < ApplicationController
   # GET /patients
   # GET /patients.xml
   def index
-    @patients = Patient.all
-    @patients = Patient.where("patients.name LIKE :search", {:search => "%#{params[:search]}%" }) if params[:search]
-
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @patients }
+      format.html {}
+      format.json {
+        @patients = Patient.where(:archive => false).jtable_basic_query(params[:jTableQuery])
+        render :json => jtable_for_json(:basic, @patients, params[:jTableQuery])
+      }
+      format.xml  { render :xml => @icd_codes }
     end
   end
   
   def archived
-    @patients = Patient.all
-    @patients = Patient.where("patients.name LIKE :search", {:search => "%#{params[:search]}%" }) if params[:search]
-    
     respond_to do |format|
-      format.html
+      format.html {}
+      format.json {
+        @patients = Patient.where(:archive => true).jtable_basic_query(params[:jTableQuery])
+        render :json => jtable_for_json(:basic, @patients, params[:jTableQuery])
+      }
+      format.xml  { render :xml => @icd_codes }
     end
   end
 
@@ -28,7 +31,7 @@ class PatientsController < ApplicationController
     @patient = Patient.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render :layout => false }
       format.xml  { render :xml => @patient }
     end
   end

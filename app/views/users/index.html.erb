@@ -14,7 +14,11 @@
       
       <% if current_user.admin %>
       
-        <td><%= check_box user, :admin %></td>
+        <td>
+          <% unless current_user == user %>
+            <input class="admin_user" type="checkbox" value="<%= user.id %>" <%= "checked" if user.admin? %>></td>
+          <% end %>
+        </td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Delete', user, :confirm => 'Are you sure?', :method => :delete %></td>
       <% end %>
@@ -25,3 +29,30 @@
 <br />
 
 <%= link_to 'New User', new_user_path %>
+
+<script type="text/javascript" charset="utf-8">
+  $('.admin_user').click(function() {
+    if (confirm('Are you sure?')) {
+      var checkbox = $(this)
+      var user_id = checkbox.val()
+      var admin = checkbox.is(':checked')
+      $.ajax({
+        url: '/users/'+user_id+'/admin',
+        data: {
+          admin: admin
+        },
+        error: function() {
+          debugger
+          if (admin) {
+            checkbox.removeAttr('checked')
+          } else {
+            checkbox.attr('checked', 'checked')
+          }
+          alert('Failed to save!')
+        }
+      })
+    } else {
+      return false
+    }
+  })
+</script>

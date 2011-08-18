@@ -83,4 +83,14 @@ class UsersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def admin
+    @user = User.find(params[:id])
+    @user.admin = params[:admin]
+    if @user.save
+      head :ok
+    else
+      head :unprocessable_entity
+    end
+  end
 end

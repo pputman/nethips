@@ -1,41 +1,28 @@
 <h1>Listing patients</h1>
 
-<%= form_tag(patients_path, :method => :get) do %>
-  <div id="search">
-    <%= text_field_tag 'search', params[:search], :id => 'search' %>
-    <%= submit_tag 'Search'%>
-    <%= link_to "Reset Search", patients_path unless params[:search].blank? %>
-  </div>
-<% end %>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Address</th>
-    <th>Age</th>
-    <th>Sex</th>
-    <th>Treatment</th>
-    <th>Source</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-<% @patients.each do |patient| %>
-  <% unless patient.archive %>
-    <tr>
-      <td><%= link_to patient.name, patient %></td>
-      <td><%= patient.address %></td>
-      <td><%= patient.age %></td>
-      <td><%= patient.sex %></td>
-      <td><%= patient.treatment %></td>
-      <td><%= patient.source %></td>
-      <% if current_user.admin %>
-        <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
-        <td><%= link_to 'Archive', archive_patient_path(patient), :confirm => 'Are you sure?' %></td>
-      <% end %>
-    </tr>
-  <% end %>
-<% end %>
-</table>
+<div id="patients"></div>
+<script type="text/javascript" charset="utf-8">
+  $('#patients').jTable({
+    width: '100%',
+    indexUrl: '/patients.json',
+    viewUrl: '/patients/:id:',
+    editUrl: '/patients/:id:/edit',
+    destroyLink: false,
+    singleColumnSearch: true,
+    columns: [
+      {heading: 'Name', attribute: 'name'},
+      {heading: 'Address', attribute: 'address'},
+      {heading: 'Age', attribute: 'age'},
+      {heading: 'Sex', attribute: 'sex'},
+      {heading: 'Treatment', attribute: 'treatment'},
+      {heading: 'Source', attribute: 'source'},
+      {heading: 'Has Picture', attribute: 'picture', dataType: 'boolean', trueValue: 'Yes', falseValue: 'No'}
+    ],
+    otherActions: [
+      {title: 'Archive', href: '/patients/:id:/archive'}
+    ]
+  })
+</script>
 
 <br />
 <%= link_to 'New Patient', new_patient_path %>

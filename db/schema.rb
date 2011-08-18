@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(:version => 20110817211244) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "picture"
-    t.boolean  "archive"
+    t.boolean  "archive",    :default => false
   end
 
   create_table "users", :force => true do |t|

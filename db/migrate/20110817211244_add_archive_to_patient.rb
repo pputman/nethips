@@ -1,6 +1,6 @@
 class AddArchiveToPatient < ActiveRecord::Migration
   def self.up
-    add_column :patients, :archive, :boolean
+    add_column :patients, :archive, :boolean, :default => false
   end
 
   def self.down
