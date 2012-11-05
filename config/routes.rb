@@ -3,7 +3,12 @@ Medicalapp::Application.routes.draw do
 
   resources :patient_documents
 
-  devise_for :users
+#  devise_for :users do
+#    get '/users/sign_out' => 'devise/sessions#destroy'
+#  end
+  devise_scope :users do
+    get '/users/sign_out' => 'devise/sessions#destroy', :as => :destroy_user_session
+  end
   resources :users do
     member do
       get 'admin'
