@@ -1,0 +1,14 @@
+template_function: off
+
+javascripts:
+  application:
+    - public/javascripts/jquery.js
+    - public/javascripts/jquery-ui.js
+    - public/javascripts/jtable.js
+    - public/javascripts/application.js
+
+stylesheets:
+  application:
+    - public/stylesheets/application.css
+    - public/stylesheets/jquery-ui.css
+    - public/stylesheets/jtable.css
