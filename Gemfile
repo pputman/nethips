@@ -12,6 +12,7 @@ gem 'rmagick'
 gem 'devise'
 gem 'paperclip'
 gem 'jtable-rails'
+gem 'jammit'
 # Use unicorn as the web server
 # gem 'unicorn'
 
