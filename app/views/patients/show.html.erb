@@ -11,6 +11,11 @@
 </p>
 
 <p>
+  <b>Telephone  Number:</b>
+  <%= @patient.telephone %>
+</p>
+
+<p>
   <b>Age:</b>
   <%= @patient.age %>
 </p>
@@ -29,5 +34,86 @@
   <b>Source:</b>
   <%= @patient.source %>
 </p>
+
+<p>
+  <b>PLHIV Code:</b>
+  <%= @patient.plhiv_code %>
+</p>
+
+<p>
+  <b>PLHIV Name:</b>
+  <%= @patient.plhiv_name %>
+</p>
+
+<p>
+  <b>Support Group:</b>
+  <%= @patient.support_group %>
+</p>
+
+<p>
+  <b>Weight:</b>
+  <%= @patient.weight %>
+</p>
+
+<p>
+  <b>Treatment Code:</b>
+  <%= @patient.treatment_code %>
+</p>
+
+<p>
+  <b>Occupation:</b>
+  <%= @patient.occupation %>
+</p>
+
+<p>
+  <b>Marital Status:</b>
+  <%= @patient.marital_status %>
+</p>
+
+<p>
+  <b>Children:</b>
+  <%= @patient.children %>
+</p>
+
+<p>
+  <b>Line of Treatment:</b>
+  <%= @patient.line_of_treatment %>
+</p>
+
+<p>
+  <b>Next of Kin/Contact:</b>
+  <%= @patient.next_of_kin_contact %>
+</p>
+
+<p>
+  <b>Disclosed Status:</b>
+  <%= @patient.disclosed_status %>
+</p>
+
+<p>
+  <b>Transfer In:</b>
+  <%= @patient.transfer_in %>
+</p>
+
+<p>
+  <b>Transfer Out:</b>
+  <%= @patient.transfer_out %>
+</p>
+
+<p>
+  <b>Co Infected</b>
+  <%= @patient.co_infected %>
+</p>
+
+<p>
+  <b>Treatment Default</b>
+  <%= @patient.treatment_default %>
+</p>
+
+<p>
+  <b>Type of Service Received</b>
+  <%= @patient.type_of_service_received %>
+</p>
+
 <%= image_tag @patient.picture.url unless @patient.picture.url.blank? %><br />
 
