@@ -11,6 +11,7 @@ class PatientsController < ApplicationController
         render :json => jtable_for_json(:basic, @patients, params[:jTableQuery])
       }
       format.xml  { render :xml => @icd_codes }
+      format.xls  {@patients = Patient.all}
     end
   end
   

@@ -10,6 +10,7 @@
   <% if current_user %>
     <%= link_to "Home", root_path %> |
     <%= link_to "Upload Patients File", upload_patients_path %> |
+    <%= link_to "Download as Excel", patients_path(:format => :xls) %> |
     <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
     <% if current_user.admin %>
       |

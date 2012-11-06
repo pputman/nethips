@@ -13,6 +13,7 @@ gem 'devise'
 gem 'paperclip'
 gem 'jtable-rails'
 gem 'jammit'
+gem 'ekuseru'
 # Use unicorn as the web server
 # gem 'unicorn'
 
