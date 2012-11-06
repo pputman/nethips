@@ -4,6 +4,7 @@ javascripts:
   application:
     - public/javascripts/jquery.js
     - public/javascripts/jquery-ui.js
+    - public/javascripts/jquery_ujs.js
     - public/javascripts/jtable.js
     - public/javascripts/application.js
 
