@@ -101,18 +101,32 @@
 </p>
 
 <p>
-  <b>Co Infected</b>
+  <b>Co Infected:</b>
   <%= @patient.co_infected %>
 </p>
 
 <p>
-  <b>Treatment Default</b>
+  <b>Treatment Default:</b>
   <%= @patient.treatment_default %>
 </p>
 
 <p>
-  <b>Type of Service Received</b>
+  <b>Type of Service Received:</b>
   <%= @patient.type_of_service_received %>
+</p>
+
+<p>
+  <b>Deceased:</b>
+  <% if @patient.deceased %>
+      <%= 'Y' %>
+    <% else %>
+      <%= 'N' %>
+  <% end %>
+</p>
+
+<p>
+  <b>Date Registered:</b>
+  <%= @patient.created_at%>
 </p>
 
 <%= image_tag @patient.picture.url unless @patient.picture.url.blank? %><br />

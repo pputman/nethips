@@ -69,7 +69,7 @@
   </div>
   <div class="field">
     <%= f.label :children %><br />
-    <%= f.text_field :marital_status %>
+    <%= f.text_field :children%>
   </div>
   <div class="field">
     <%= f.label :line_of_treatment %><br />
@@ -102,8 +102,11 @@
   <div class="field">
     <%= f.label :type_of_service_received %><br />
     <%= f.text_field :type_of_service_received %>
-  </div>
- 
+  </div> 
+  <div class="field">
+    <%= f.label :deceased %>
+    <%= f.check_box :deceased %>
+  </div> 
   <div class="field">
     <%= f.label "Upload Picture" %><br />
     <%= f.file_field :picture %>
