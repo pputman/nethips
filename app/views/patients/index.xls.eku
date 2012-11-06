@@ -1,9 +1,9 @@
 __filename = "Patient List.xls"
 sheet1 = xls.create_worksheet
 sheet1[0, 0] = "Patient List"
-sheet1.row(1).concat ["Name", "Address", "Age", "Sex", "Treatment", "Source"]
+sheet1.row(1).concat ["Name", "Address", "Telephone Number", "Age", "Sex", "Treatment", "Source", "PLHIV Code", "PLHIV Name", "Support Group", "Weight", "Treatment Code", "Date Registered", "Occupation", "Marital Status", "Children", "Line of Treatment", "Next of kin/Contact", "Disclosed Status", "Transfer In", "Transfer Out", "Co Infected", "Treatment Default", "Type of Service Received", "Deceased"]
 @patients.each_with_index do |p, i|
-  sheet1.update_row i+2, p.name, p.address, p.age, p.sex, p.treatment, p.source
+  sheet1.update_row i+2, p.name, p.address, p.telephone, p.age, p.sex, p.treatment, p.source, p.plhiv_code, p.plhiv_name, p.support_group, p.weight, p.treatment_code, p.date_registered, p.occupation, p.marital_status, p.children, p.line_of_treatment, p.next_of_kin_contact, p.disclosed_status, p.transfer_in, p.transfer_out, p.co_infected, p.treatment_default, p.type_of_service_received, p.deceased
 end
 
 title_format = Spreadsheet::Format.new(:color => :blue, :weight => :bold, :size => 18)
