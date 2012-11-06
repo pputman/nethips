@@ -9,7 +9,7 @@ class AddFieldsToPatients < ActiveRecord::Migration
     add_column :patients, :telephone, :string
     add_column :patients, :date_registered, :date
     add_column :patients, :occupation, :string
-    add_column :patients, :marital_status, :char
+    add_column :patients, :marital_status, :string
     add_column :patients, :children, :integer
     add_column :patients, :line_of_treatment, :string
     add_column :patients, :next_of_kin_contact, :string
