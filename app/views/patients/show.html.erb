@@ -124,10 +124,5 @@
   <% end %>
 </p>
 
-<p>
-  <b>Date Registered:</b>
-  <%= @patient.created_at%>
-</p>
-
 <%= image_tag @patient.picture.url unless @patient.picture.url.blank? %><br />
 
