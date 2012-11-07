@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121106182116) do
+ActiveRecord::Schema.define(:version => 20121107020738) do
 
   create_table "models", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20121106182116) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "picture"
-    t.boolean  "archive",                                 :default => false
+    t.boolean  "archive",                  :default => false
     t.string   "number"
     t.string   "plhiv_code"
     t.string   "plhiv_name"
@@ -54,10 +54,10 @@ ActiveRecord::Schema.define(:version => 20121106182116) do
     t.string   "weight"
     t.string   "treatment_code"
     t.string   "telephone"
-    t.date     "date_registered"
+    t.string   "date_registered"
     t.string   "occupation"
-    t.string   "marital_status",           :limit => nil
-    t.integer  "children"
+    t.string   "marital_status"
+    t.string   "children"
     t.string   "line_of_treatment"
     t.string   "next_of_kin_contact"
     t.string   "disclosed_status"
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(:version => 20121106182116) do
     t.string   "co_infected"
     t.string   "treatment_default"
     t.string   "type_of_service_received"
-    t.boolean  "deceased"
+    t.string   "deceased"
   end
 
   create_table "users", :force => true do |t|
