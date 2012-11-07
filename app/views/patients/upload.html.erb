@@ -1,6 +1,6 @@
 <%= form_for(@patient, :html => {:multipart => true}) do |f| %>
   <div class="field">
-    <%= f.label :upload, "Upload csv file in the format of 'name, address, telephone number, age, sex, treatment, source, plhiv code, plhiv name, support group, weight, treatment code, occupation, marital status, children, line of treatment, next of kin, disclosed status, transfer in, transfer out, co infected, treatment default, type of service received, deceased' to add to the patient database"%><br /><br /><br />
+    <%= f.label :upload, "Upload csv file in the format of 'name, address, telephone number, age, sex, treatment, source, plhiv code, plhiv name, support group, weight, treatment code, date_registered, occupation, marital status, children, line of treatment, next of kin, disclosed status, transfer in, transfer out, co infected, treatment default, type of service received, deceased' to add to the patient database"%><br /><br /><br />
     
     <%= f.file_field :upload %>
   </div>
