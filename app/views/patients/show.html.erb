@@ -117,10 +117,10 @@
 
 <p>
   <b>Deceased:</b>
-  <% if @patient.deceased = true %> 
-      <%= 'Y' %>
-    <% else %>
+  <% if @patient.deceased.isblank? || @patient.deceased = "0"%> 
       <%= 'N' %>
+    <% else %>
+      <%= 'Y' %>
   <% end %>
 </p>
 
