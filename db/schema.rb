@@ -12,11 +12,6 @@
 
 ActiveRecord::Schema.define(:version => 20121107020738) do
 
-  create_table "data_files", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "models", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
     t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
