@@ -10,7 +10,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121107020738) do
+ActiveRecord::Schema.define(:version => 20121214205606) do
+
+  create_table "children", :force => true do |t|
+    t.integer  "ovc_id"
+    t.string   "name"
+    t.string   "address"
+    t.string   "contact_no"
+    t.string   "age"
+    t.string   "sex"
+    t.string   "hiv_status"
+    t.string   "weight"
+    t.string   "treatment_code_of_parent"
+    t.string   "treatment_type"
+    t.string   "support_group"
+    t.string   "location"
+    t.string   "school"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "archive"
+  end
 
   create_table "models", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false

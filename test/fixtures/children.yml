@@ -1,0 +1,31 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  ovc_id: 1
+  name: MyString
+  address: MyString
+  contact_no: MyString
+  age: MyString
+  sex: MyString
+  hiv_status: MyString
+  weight: MyString
+  treatment_code_of_parent: MyString
+  treatment_type: MyString
+  support_group: MyString
+  location: MyString
+  school: MyString
+
+two:
+  ovc_id: 1
+  name: MyString
+  address: MyString
+  contact_no: MyString
+  age: MyString
+  sex: MyString
+  hiv_status: MyString
+  weight: MyString
+  treatment_code_of_parent: MyString
+  treatment_type: MyString
+  support_group: MyString
+  location: MyString
+  school: MyString

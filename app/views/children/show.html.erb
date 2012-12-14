@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Ovc:</b>
+  <%= @child.ovc_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @child.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @child.address %>
+</p>
+
+<p>
+  <b>Contact no:</b>
+  <%= @child.contact_no %>
+</p>
+
+<p>
+  <b>Age:</b>
+  <%= @child.age %>
+</p>
+
+<p>
+  <b>Sex:</b>
+  <%= @child.sex %>
+</p>
+
+<p>
+  <b>Hiv status:</b>
+  <%= @child.hiv_status %>
+</p>
+
+<p>
+  <b>Weight:</b>
+  <%= @child.weight %>
+</p>
+
+<p>
+  <b>Treatment code of parent:</b>
+  <%= @child.treatment_code_of_parent %>
+</p>
+
+<p>
+  <b>Treatment type:</b>
+  <%= @child.treatment_type %>
+</p>
+
+<p>
+  <b>Support group:</b>
+  <%= @child.support_group %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @child.location %>
+</p>
+
+<p>
+  <b>School:</b>
+  <%= @child.school %>
+</p>
+
+
+<%= link_to 'Edit', edit_child_path(@child) %> |
+<%= link_to 'Back', children_path %>

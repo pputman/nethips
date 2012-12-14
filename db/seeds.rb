@@ -14,3 +14,5 @@ open("../output.csv") do |patients|
     Patient.create!(:name => name, :address => address, :telephone => telephone, :age => age, :sex => sex, :treatment => treatment, :address => address, :source => source, :plhiv_code => plhiv_code, :plhiv_name => plhiv_name, :support_group => support_group, :weight => weight, :treatment_code => treatment_code, :date_registered => date_registered, :occupation => occupation, :marital_status => marital_status, :children => children, :line_of_treatment => line_of_treatment, :next_of_kin_contact => next_of_kin_contact, :disclosed_status => disclosed_status, :transfer_in => transfer_in, :transfer_out => transfer_out, :co_infected => co_infected, :treatment => treatment, :type_of_service_received => type_of_service_received, :deceased => deceased)
   end
 end
+
+

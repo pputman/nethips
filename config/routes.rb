@@ -1,6 +1,8 @@
 Medicalapp::Application.routes.draw do
 
 
+  resources :children
+
   resources :patient_documents
 
 #  devise_for :users do
@@ -24,6 +26,18 @@ Medicalapp::Application.routes.draw do
       get 'unarchive'
     end
   end
+
+  resources :children do
+    collection do
+      get 'upload'
+      get 'archived'
+    end
+    member do
+      get 'archive'
+      get 'unarchive'
+    end
+  end
+
 
   root :to => "patients#index"
 

@@ -1,0 +1,36 @@
+<h1>Listing children patients</h1>
+
+<div id="children"></div>
+<script type="text/javascript" charset="utf-8">
+  $('#children').jTable({
+    width: '100%',
+    indexUrl: '/children.json',
+    viewUrl: '/children/:id:',
+    editUrl: '/children/:id:/edit',
+    destroyLink: false,
+    singleColumnSearch: true,
+    columns: [
+      {heading: 'OVC id', attribute: 'ovc_id'},
+      {heading: 'Name', attribute: 'name'},
+      {heading: 'Address', attribute: 'address'},
+      {heading: 'Contact Number', attribute: 'contact_no'},
+      {heading: 'Age', attribute: 'age'},
+      {heading: 'Sex', attribute: 'sex'},
+      {heading: 'HIV status', attribute: 'hiv_status'},
+      {heading: 'weight', attribute: 'weight'},
+      {heading: 'Parent Treatment Code', attribute: 'treatment_code_of_parent'},
+      {heading: 'Treatment', attribute: 'treatment_type'},
+      {heading: 'Support Group', attribute: 'support_group'},
+      {heading: 'Location', attribute: 'location'},
+      {heading: 'School', attribute: 'school'}
+    ],
+    otherActions: [
+      {title: 'Archive', href: '/children/:id:/archive'}
+    ]
+  })
+</script>
+
+<br />
+<%= link_to 'New Child', new_child_path%><br />
+<%= link_to "Upload Children Patients File", upload_children_path %> 
+

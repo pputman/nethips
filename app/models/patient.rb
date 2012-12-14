@@ -13,12 +13,14 @@ class Patient < ActiveRecord::Base
   end
   
   def jtable_basic_attribute_sex
-    if self.sex.downcase == "m"
-      "Male"
-    elsif self.sex.downcase == "f"
-      "Female"
-    else
-      ""
+    unless self.sex.blank?
+      if self.sex.downcase == "m"
+        "Male"
+      elsif self.sex.downcase == "f"
+        "Female"
+      else
+        ""
+      end
     end
   end
 end
