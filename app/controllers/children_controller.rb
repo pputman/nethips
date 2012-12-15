@@ -59,8 +59,8 @@ class ChildrenController < ApplicationController
     if params[:child][:upload]
       file = params[:child][:upload].read
       file.each_line do |child|
-        name, age, sex, treatment, address = child.chomp.split(",")
-        Child.create!(:name => name, :age => age, :sex => sex, :treatment => treatment, :address => address)
+	ovc_id, name, address, contact_no, age, sex, hiv_status, weight, treatment_code_of_parent, treatment_type, support_group, location, school = child.chomp.split(",")
+        Child.create!(:ovc_id => ovc_id, :name => name, :address => address, :contact_no => contact_no, :age => age, :sex => sex, :hiv_status => hiv_status, :weight => weight, :treatment_code_of_parent => treatment_code_of_parent, :treatment_type => treatment_type, :support_group => support_group, :location => location, :school => school)
       end
       redirect_to(children_url)
     else
@@ -94,7 +94,7 @@ class ChildrenController < ApplicationController
   end
 
   def upload
-    @children = Child.new
+    @child = Child.new
   end
   
   def archive

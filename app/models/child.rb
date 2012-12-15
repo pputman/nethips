@@ -14,9 +14,9 @@ class Child < ActiveRecord::Base
 #  end
 
   def jtable_basic_attribute_sex
-    if self.sex.downcase == "m"
+    if self.sex.downcase == "m" || self.sex.downcase == "male"
       "Male"
-    elsif self.sex.downcase == "f"
+    elsif self.sex.downcase == "f" || self.sex.downcase == "female"
       "Female"
     else
       ""

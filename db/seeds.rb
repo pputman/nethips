@@ -15,4 +15,10 @@ open("../output.csv") do |patients|
   end
 end
 
-
+Children.delete_all
+open("../output.csv") do |children|
+  children.read.each_line do |child|
+    ovc_id, name, address, contact_no, age, sex = child.chomp.split(",")
+    Child.create!(:ovc_id => ovc_id :address => address, :contact_no => contact_no, :age => age, :sex => sex, :hiv_staus => hiv_status, :weight => weight, :treatment_code_of_parent => treatment_code_of_parent, :treatment_type => treatment_type, :support_group => support_group, :location => location, :school => school)
+  end
+end
