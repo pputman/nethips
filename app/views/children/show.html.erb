@@ -64,7 +64,42 @@
   <b>School:</b>
   <%= @child.school %>
 </p>
-
+<p>
+  <b>Class/Form:</b>
+  <%= @child.class_form %>
+</p>
+<p>
+  <b>Support Received:</b>
+  <%= @child.support_received %>
+</p>
+<p>
+  <b>Caregiver Name:</b>
+  <%= @child.caregiver_name%>
+</p>
+<p>
+  <b>PL Code:</b>
+  <%= @child.plcode %>
+</p>
+<p>
+  <b>Caregiver Relationship:</b>
+  <%= @child.caregiver_relationship %>
+</p>
+<p>
+  <b>Caregiver Contact Number:</b>
+  <%= @child.caregiver_contact_no %>
+</p>
+<p>
+  <b>Caregiver Address:</b>
+  <%= @child.caregiver_address %>
+</p>
+<p>
+  <b>Caregiver Age:</b>
+  <%= @child.caregiver_age %>
+</p>
+<p>
+  <b>Caregiver Occupation:</b>
+  <%= @child.caregiver_occupation %>
+</p>
 
 <%= link_to 'Edit', edit_child_path(@child) %> |
 <%= link_to 'Back', children_path %>
