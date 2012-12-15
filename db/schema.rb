@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(:version => 20121214205606) do
     t.string   "school"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "archive"
+    t.boolean  "archive",                  :default => false
   end
 
   create_table "models", :force => true do |t|

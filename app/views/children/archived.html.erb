@@ -4,7 +4,7 @@
 <script type="text/javascript" charset="utf-8">
   $('#children').jTable({
     width: '100%',
-    indexUrl: '/children.json',
+    indexUrl: '/children/archived.json',
     viewUrl: '/children/:id:',
     editUrl: '/children/:id:/edit',
     destroyLink: false,
@@ -25,12 +25,9 @@
       {heading: 'School', attribute: 'school'}
     ],
     otherActions: [
-      {title: 'Archive', href: '/children/:id:/archive'}
+      {title: 'Restore', href: '/children/:id:/unarchive'}
     ]
   })
 </script>
 
 <br />
-<%= link_to 'New Child', new_child_path%><br />
-<%= link_to "Archived Children Patients", archived_children_path %>
-<%= link_to "Upload Children Patients File", upload_children_path %><br />

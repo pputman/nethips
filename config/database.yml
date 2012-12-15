@@ -16,7 +16,7 @@ development:
 test:
   adapter: mysql
   encoding: utf8
-  database: nethipstest
+  database: nethips2
   username: nethips
   password: wetpaint
   socket: /var/run/mysqld/mysqld.sock
@@ -24,7 +24,7 @@ test:
 production:
   adapter: mysql
   encoding: utf8
-  database: nethipsproduction
+  database: nethips2
   username: nethips
   password: wetpaint
   socket: /var/run/mysqld/mysqld.sock

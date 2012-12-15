@@ -1,7 +1,6 @@
 Medicalapp::Application.routes.draw do
 
 
-  resources :children
 
   resources :patient_documents
 
