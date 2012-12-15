@@ -63,14 +63,14 @@ class ChildrenController < ApplicationController
       end
       redirect_to(children_url)
     else
-      @children = Child.new(params[:child])
+      @child = Child.new(params[:child])
       respond_to do |format|
-        if @children.save
-          format.html { redirect_to(@children, :notice => 'Child was successfully created.') }
-          format.xml  { render :xml => @children, :status => :created, :location => @child }
+        if @child.save
+          format.html { redirect_to(@child, :notice => 'Child was successfully created.') }
+          format.xml  { render :xml => @child, :status => :created, :location => @child }
         else
           format.html { render :action => "new" }
-          format.xml  { render :xml => @children.errors, :status => :unprocessable_entity }
+          format.xml  { render :xml => @child.errors, :status => :unprocessable_entity }
         end
       end
     end

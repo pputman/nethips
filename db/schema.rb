@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121215060946) do
+ActiveRecord::Schema.define(:version => 20121215075815) do
 
   create_table "children", :force => true do |t|
     t.integer  "ovc_id"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20121215060946) do
     t.string   "caregiver_occupation"
     t.string   "class_form"
     t.string   "support_received"
+    t.string   "picture"
   end
 
   create_table "models", :force => true do |t|

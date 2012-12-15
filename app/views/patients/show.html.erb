@@ -125,4 +125,6 @@
 </p>
 
 <%= image_tag @patient.picture.url unless @patient.picture.url.blank? %><br />
+<%= link_to 'Edit', edit_patient_path(@patient) %> |
+<%= link_to 'Back', patient_path %>
 

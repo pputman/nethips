@@ -101,5 +101,8 @@
   <%= @child.caregiver_occupation %>
 </p>
 
+<%= image_tag @child.picture.url unless @child.picture.url.blank? %><br />
+
+
 <%= link_to 'Edit', edit_child_path(@child) %> |
 <%= link_to 'Back', children_path %>

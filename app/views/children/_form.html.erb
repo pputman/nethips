@@ -98,6 +98,13 @@
     <%= f.label :caregiver_occupation %><br />
     <%= f.text_field :caregiver_occupation %>
   </div>
+  <div class="field">
+    <%= f.label "Upload Picture" %><br />
+    <%= f.file_field :picture %>
+  </div>
+
+  <%= image_tag @child.picture.url unless @child.picture.url.blank? %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
