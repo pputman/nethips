@@ -1,0 +1,12 @@
+__filename = "Children Patient List.xls"
+sheet1 = xls.create_worksheet
+sheet1[0, 0] = "Patient List"
+sheet1.row(1).concat ["OVC ID", "Name", "Address", "Contact Number", "Age", "Sex", "HIV Status", "Weight", "Treatment Code of Parent", "Treatment Type", "Support Group", "Location", "School", "Class/Form", "Type of support  received", "Caregiver", "PL Code", "Caregiver Relationship", "Caregiver Contact Number", "Caregiver Address", "Caregiver Age", "Caregiver Occupation"]
+@children.each_with_index do |p, i|
+  sheet1.update_row i+2, p.ovc_id, p.name, p.address, p.contact_no, p.age, p.sex, p.hiv_status, p.weight, p.treatment_code_of_parent, p.treatment_type, p.support_group, p.location, p.school, p.class_form, p.support_received, p.caregiver_name, p.plcode, p.caregiver_relationship, p.caregiver_contact_no, p.caregiver_address, p.caregiver_age, p.caregiver_occupation
+end
+
+title_format = Spreadsheet::Format.new(:color => :blue, :weight => :bold, :size => 18)
+sheet1.row(0).set_format(0, title_format)
+bold = Spreadsheet::Format.new(:weight => :bold)
+sheet1.row(1).default_format = bold

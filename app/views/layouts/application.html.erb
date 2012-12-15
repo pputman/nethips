@@ -10,7 +10,8 @@
   <% if current_user %>
     <%= link_to "Adults", patients_path %> |
     <%= link_to "Children", children_path %> |
-    <%= link_to "Download as Excel", patients_path(:format => :xls) %> |
+    <%= link_to "Download Adults as Excel", patients_path(:format => :xls) %> |
+    <%= link_to "Download Children as Excel", children_path(:format => :xls) %> |
     <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
     <% if current_user.admin %>
       |
