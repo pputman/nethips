@@ -19,6 +19,6 @@ Children.delete_all
 open("../output.csv") do |children|
   children.read.each_line do |child|
     ovc_id, name, address, contact_no, age, sex = child.chomp.split(",")
-    Child.create!(:ovc_id => ovc_id :address => address, :contact_no => contact_no, :age => age, :sex => sex, :hiv_staus => hiv_status, :weight => weight, :treatment_code_of_parent => treatment_code_of_parent, :treatment_type => treatment_type, :support_group => support_group, :location => location, :school => school)
+    Child.create!(:ovc_id => ovc_id :address => address, :contact_no => contact_no, :age => age, :sex => sex, :hiv_staus => hiv_status, :weight => weight, :treatment_code_of_parent => treatment_code_of_parent, :treatment_type => treatment_type, :support_group => support_group, :location => location, :school => school, :class => class, :support_received => support_received, :caregiver_name => caregiver_name, :plcode => plcode, :caregiver_relationship, caregiver_relationship, :caregiver_contact_no => caregiver_contact_no, :caregiver_address => caregiver_address, :caregiver_age => caregiver_age, :caregiver_occupation => caregiver_occupation)
   end
 end

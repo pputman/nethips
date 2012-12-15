@@ -13,8 +13,7 @@ class ChildrenController < ApplicationController
       format.xml  { render :xml => @icd_codes }
       format.xls  {@children = Child.all}
     end
-  end
-  
+  end 
   def archived
     respond_to do |format|
       format.html {}
@@ -59,8 +58,8 @@ class ChildrenController < ApplicationController
     if params[:child][:upload]
       file = params[:child][:upload].read
       file.each_line do |child|
-	ovc_id, name, address, contact_no, age, sex, hiv_status, weight, treatment_code_of_parent, treatment_type, support_group, location, school = child.chomp.split(",")
-        Child.create!(:ovc_id => ovc_id, :name => name, :address => address, :contact_no => contact_no, :age => age, :sex => sex, :hiv_status => hiv_status, :weight => weight, :treatment_code_of_parent => treatment_code_of_parent, :treatment_type => treatment_type, :support_group => support_group, :location => location, :school => school)
+        ovc_id, name, address, contact_no, age, sex, hiv_status, weight, treatment_code_of_parent, treatment_type, support_group, location, school, class_form, support_received, caregiver_name, plcode, caregiver_relationship, caregiver_contact_no, caregiver_address, caregiver_age, caregiver_occupation = child.chomp.split(",")
+        Child.create!(:ovc_id => ovc_id, :name => name, :address => address, :contact_no => contact_no, :age => age, :sex => sex, :hiv_status => hiv_status, :weight => weight, :treatment_code_of_parent => treatment_code_of_parent, :treatment_type => treatment_type, :support_group => support_group, :location => location, :school => school, :class_form => class_form, :support_received => support_received, :caregiver_name => caregiver_name, :plcode => plcode, :caregiver_relationship => caregiver_relationship, :caregiver_contact_no => caregiver_contact_no, :caregiver_address => caregiver_address, :caregiver_age => caregiver_age, :caregiver_occupation => caregiver_occupation)
       end
       redirect_to(children_url)
     else

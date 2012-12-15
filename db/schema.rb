@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121214205606) do
+ActiveRecord::Schema.define(:version => 20121215060946) do
 
   create_table "children", :force => true do |t|
     t.integer  "ovc_id"
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(:version => 20121214205606) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "archive",                  :default => false
+    t.string   "caregiver_name"
+    t.string   "plcode"
+    t.string   "caregiver_relationship"
+    t.string   "caregiver_contact_no"
+    t.string   "caregiver_address"
+    t.string   "caregiver_age"
+    t.string   "caregiver_occupation"
+    t.string   "class_form"
+    t.string   "support_received"
   end
 
   create_table "models", :force => true do |t|
