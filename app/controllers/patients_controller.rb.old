@@ -59,8 +59,8 @@ class PatientsController < ApplicationController
     if params[:patient][:upload]
       file = params[:patient][:upload].read
       file.each_line do |patient|
-        name, address, telephone, age, sex, treatment, source, plhiv_code, plhiv_name, support_group, weight, treatment_code, date_registered, occupation, marital_status, children, line_of_treatment, next_of_kin_contact, disclosed_status, transfer_in, transfer_out, co_infected, treatment, type_of_service_received, deceased = patient.chomp.split(",")
-        Patient.create!(:name => name.strip, :address => address.strip, :telephone => telephone.strip, :age => age.strip, :sex => sex.strip, :treatment => treatment.strip, :source => source.strip, :plhiv_code => plhiv_code.strip, :plhiv_name => plhiv_name.strip, :support_group => support_group.strip, :weight => weight.strip, :treatment_code => treatment_code.strip, :date_registered => date_registered.strip, :occupation => occupation.strip, :marital_status => marital_status.strip, :children => children.strip, :line_of_treatment => line_of_treatment.strip, :next_of_kin_contact => next_of_kin_contact.strip, :disclosed_status => disclosed_status.strip, :transfer_in => transfer_in.strip, :transfer_out => transfer_out.strip, :co_infected => co_infected.strip, :treatment => treatment.strip, :type_of_service_received => type_of_service_received.strip, :deceased => deceased.strip)
+        name, age, sex, treatment, address, source = patient.chomp.split(",")
+        Patient.create!(:name => name, :age => age, :sex => sex, :treatment => treatment, :address => address, :source => source)
       end
       redirect_to(patients_url)
     else

@@ -19,7 +19,7 @@ class Patient < ActiveRecord::Base
       elsif self.sex.downcase == "f"
         "Female"
       else
-        ""
+        self.sex
       end
     end
   end
